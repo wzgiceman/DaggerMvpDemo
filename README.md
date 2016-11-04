@@ -8,10 +8,10 @@ mvp话说也出来很久了，初入学习Dagger的时候，就感觉和mvp结�
 MVP，全称 Model-View-Presenter，要说MVP那就不得不说一说它的前辈MVC。
 MVC（Model-View-Controller，模型-视图-控制器）模式是80年代Smalltalk-80出现的一种软件设计模式，后来得到了广泛的应用，其主要目的在于促进应用中模型，视图，控制器间的关注的清晰分离。MVP（Model-View-Presenter，模型-视图-表示器）模式则是由IBM开发出来的一个针对C++和Java的编程模型，大概出现于2000年，是MVC模式的一个变种，主要用来隔离UI、UI逻辑和业务逻辑、数据。也就是说，MVP 是从经典的模式MVC演变而来，它们的基本思想有相通的地方：Controller/Presenter负责逻辑的处理，Model提供数据，View负责显示，所有通信都是单向的；
 
-![这里写图片描述](http://img.blog.csdn.net/20161104152047448)
+![这里写图片描述](https://github.com/wzgiceman/DaggerMvpDemo/blob/master/gif/mvc.png)
 
 MVP 模式将 Controller 改名为 Presenter，同时改变了通信方向
-![这里写图片描述](http://img.blog.csdn.net/20161104152220481)
+![这里写图片描述](https://github.com/wzgiceman/DaggerMvpDemo/blob/master/gif/mvp.png)
 1. 各部分之间的通信，都是双向的。
 2. View 与 Model 不发生联系，都通过 Presenter 传递。
 3. View 非常薄，不部署任何业务逻辑，称为"被动视图"（Passive View），即没有任何主动性，而 Presenter非常厚，所有逻辑都部署在那里。
@@ -35,7 +35,7 @@ UI层一般包括Activity，Fragment，Adapter等直接和UI相关的类，UI层
 ##MVP实现
 如何把mvp实现在我们的代码上呢？
 
-![这里写图片描述](http://img.blog.csdn.net/20161104152640284)
+![这里写图片描述](https://github.com/wzgiceman/DaggerMvpDemo/blob/master/gif/pro.png)
 
 可以从上面简单的demo的结构上看出，model和ui层都是提供了一个外部接口类，而presenter拥有这两个类的依赖，而MvpActivity拥有presenter的依赖，当MvpActivity触发事件后通过presenter触发事件处理model，当model处理完成以后通过ui外部接口类回调给activity！
 
@@ -204,6 +204,5 @@ public class MvpActivity extends AppCompatActivity implements MvpUiImpl{
 ```
 
 ##结果
-![这里写图片描述](http://img.blog.csdn.net/20161104155012836)
+![这里写图片描述](https://github.com/wzgiceman/DaggerMvpDemo/blob/master/gif/mvc.gif)
 
-[传送门-Github](https://github.com/wzgiceman/DaggerMvpDemo)
